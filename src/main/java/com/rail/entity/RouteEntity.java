@@ -13,7 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.rail.dto.TrainDTO;
+
 
 
 @Entity
@@ -31,7 +31,7 @@ public class RouteEntity {
 	@JoinTable(name = "Route_Train_Mapping",
 			joinColumns = @JoinColumn(name="ROUTE_ID"),
 			inverseJoinColumns = @JoinColumn(name="TRAIN_ID",unique = true))
-	private List<TrainDTO> trainList;
+	private List<TrainEntity> trainList;
 	
 	public RouteEntity() {
 	}
@@ -56,10 +56,10 @@ public class RouteEntity {
 	public void setDestination(String destination) {
 		this.destination = destination;
 	}
-	public List<TrainDTO> getTrainList() {
+	public List<TrainEntity> getTrainList() {
 		return trainList;
 	}
-	public void setTrainList(List<TrainDTO> trainList) {
+	public void setTrainList(List<TrainEntity> trainList) {
 		this.trainList = trainList;
 	}
 	
