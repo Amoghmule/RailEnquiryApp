@@ -22,6 +22,8 @@ public class TrainEntity {
 	private LocalTime arrivalTime;
 	private LocalTime departureTime;
 	
+	private Double fare;
+	
 	
 	public TrainEntity() {
 		
@@ -50,6 +52,14 @@ public class TrainEntity {
 	}
 	public void setDepartureTime(LocalTime departureTime) {
 		this.departureTime = departureTime;
+	}
+
+	public Double getFare() {
+		return fare;
+	}
+
+	public void setFare(Double fare) {
+		this.fare = fare;
 	}
 	
 	
