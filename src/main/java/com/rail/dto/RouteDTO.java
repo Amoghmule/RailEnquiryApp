@@ -59,6 +59,14 @@ public class RouteDTO {
 	public void setTrainList(List<TrainDTO> trainList) {
 		this.trainList = trainList;
 	}
+
+
+	@Override
+	public String toString() {
+		return "RouteDTO [routeId=" + routeId + ", source=" + source + ", destination=" + destination + ", trainList="
+				+ trainList + "]";
+	}
+	
 	
 	
 	

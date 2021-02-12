@@ -4,6 +4,7 @@ import java.time.LocalTime;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 
 public class TrainDTO {
 	
@@ -18,6 +19,7 @@ public class TrainDTO {
 	
 	private LocalTime departureTime;
 	
+	@PositiveOrZero(message = "Train fare cannot be negative, Please check")
 	private Double fare;
 
 	
@@ -63,6 +65,12 @@ public class TrainDTO {
 
 	public void setFare(Double fare) {
 		this.fare = fare;
+	}
+
+	@Override
+	public String toString() {
+		return "TrainDTO [trainId=" + trainId + ", trainName=" + trainName + ", arrivalTime=" + arrivalTime
+				+ ", departureTime=" + departureTime + ", fare=" + fare + "]";
 	} 
 	
 	
