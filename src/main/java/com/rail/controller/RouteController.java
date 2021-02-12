@@ -76,7 +76,7 @@ public class RouteController {
 	
 	
 		//Remove train from Route
-		@DeleteMapping("/{routeId}/{trainId}")
+		@DeleteMapping("/{routeId}/trains/{trainId}")
 		public ResponseEntity<String> deleteTrain(@PathVariable @Pattern(regexp = "[0-9]+") Integer routeId,@PathVariable @Pattern(regexp = "[0-9]+") Integer trainId) throws Exception{
 			
 			routeService.deleteTrainById(routeId,trainId);
