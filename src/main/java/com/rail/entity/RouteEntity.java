@@ -13,15 +13,18 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 
 
 
 @Entity
 @Table(name = "ROUTE")
+@GenericGenerator(name = "routeIdgen",strategy = "increment")
 public class RouteEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator = "routeIdgen")
 	@Column(name = "ROUTE_ID")
 	private Integer routeId;
 	private String source;

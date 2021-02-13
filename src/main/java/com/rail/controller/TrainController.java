@@ -2,6 +2,7 @@ package com.rail.controller;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +41,7 @@ public class TrainController {
 	
 	//for updating train fare
 		@PutMapping(value = "/{trainId}",consumes = "application/json" )
-		public ResponseEntity<String> updateFare(@PathVariable @Pattern(regexp = "[0-9]+") Integer trainId,@Valid @RequestBody TrainDTO trainDTO) throws Exception{
+		public ResponseEntity<String> updateFare(@PathVariable @Positive Integer trainId,@Valid @RequestBody TrainDTO trainDTO) throws Exception{
 
 			
 			trainService.updateFare(trainId,trainDTO);
@@ -52,7 +53,7 @@ public class TrainController {
 	
 		//for getting train
 		@GetMapping(value = "/{trainId}",produces = "application/json")
-		public ResponseEntity<TrainDTO> getTrain(@PathVariable @Pattern(regexp = "[0-9]+") Integer trainId) throws Exception{
+		public ResponseEntity<TrainDTO> getTrain(@PathVariable @Positive Integer trainId) throws Exception{
 			
 			TrainDTO t=trainService.getTrain(trainId);
 			

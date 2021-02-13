@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -44,7 +45,7 @@ public class RouteController {
 	
 	//For getting route
 	@GetMapping(value =  "/{routeId}", produces = "application/json")
-	public ResponseEntity<RouteDTO> getRoutebyId(@PathVariable @Pattern(regexp = "[0-9]+") Integer routeId) throws Exception{
+	public ResponseEntity<RouteDTO> getRoutebyId(@PathVariable @Positive Integer routeId) throws Exception{
 		
 		RouteDTO rDto=routeService.getRoutebyId(routeId);
 		
@@ -55,8 +56,8 @@ public class RouteController {
 	//For traindetails by source and destination
 	@GetMapping(value = "/trains",produces = "application/json")
 	public ResponseEntity<List<TrainDTO>> getTrains(@RequestParam 
-			@Pattern(regexp = "[a-zA-Z]+") String source,
-			@RequestParam @Pattern(regexp = "[a-zA-Z]+") String destination ) throws Exception{
+			@Pattern(regexp = "[a-zA-Z_-]+") String source,
+			@RequestParam @Pattern(regexp = "[a-zA-Z_-]+") String destination ) throws Exception{
 		List<TrainDTO> tList=routeService.getTrains(source,destination);
 		return ResponseEntity.ok(tList);
 	
@@ -65,7 +66,7 @@ public class RouteController {
 	
 	//for updating route
 	@PutMapping(value = "/{routeId}", consumes = "application/json")
-	public ResponseEntity<String> updateSourceAndDestination(@PathVariable @Pattern(regexp = "[0-9]+") Integer routeId,@Valid @RequestBody RouteDTO routeDTO
+	public ResponseEntity<String> updateSourceAndDestination(@PathVariable @Positive Integer routeId,@Valid @RequestBody RouteDTO routeDTO
 			) throws Exception{
 		
 		routeService.updateSourceAndDestination(routeDTO,routeId);
@@ -77,7 +78,7 @@ public class RouteController {
 	
 		//Remove train from Route
 		@DeleteMapping("/{routeId}/trains/{trainId}")
-		public ResponseEntity<String> deleteTrain(@PathVariable @Pattern(regexp = "[0-9]+") Integer routeId,@PathVariable @Pattern(regexp = "[0-9]+") Integer trainId) throws Exception{
+		public ResponseEntity<String> deleteTrain(@PathVariable @Positive Integer routeId,@PathVariable @Positive Integer trainId) throws Exception{
 			
 			routeService.deleteTrainById(routeId,trainId);
 			
@@ -90,7 +91,7 @@ public class RouteController {
 		
 		//Add train in Route
 		@PutMapping(value = "/{routeId}/trains", consumes = "application/json")
-		public ResponseEntity<String> updateTrainDetails(@PathVariable @Pattern(regexp = "[0-9]+") Integer routeId,@Valid @RequestBody TrainDTO trainDTO) throws Exception{
+		public ResponseEntity<String> updateTrainDetails(@PathVariable @Positive Integer routeId,@Valid @RequestBody TrainDTO trainDTO) throws Exception{
 			
 			
 			routeService.updateTrainDetails(trainDTO,routeId);

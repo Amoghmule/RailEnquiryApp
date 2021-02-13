@@ -9,12 +9,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name = "TRAIN")
+@GenericGenerator(name="idgen",strategy = "increment")
 public class TrainEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(generator = "idgen")
 	@Column(name = "TRAIN_ID")
 	private Integer trainId;
 	

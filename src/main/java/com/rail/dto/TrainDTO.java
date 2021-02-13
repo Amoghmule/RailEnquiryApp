@@ -2,9 +2,16 @@ package com.rail.dto;
 
 import java.time.LocalTime;
 
+
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+
 import javax.validation.constraints.PositiveOrZero;
+
+
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+
+
 
 public class TrainDTO {
 	
@@ -14,9 +21,11 @@ public class TrainDTO {
 	private String trainName;
 	
 	
+	@JsonDeserialize(using = ParseDeserializer.class)
 	private LocalTime arrivalTime;
 	
 	
+	@JsonDeserialize(using = ParseDeserializer.class)
 	private LocalTime departureTime;
 	
 	@PositiveOrZero(message = "Train fare cannot be negative, Please check")
@@ -71,6 +80,8 @@ public class TrainDTO {
 	public String toString() {
 		return "TrainDTO [trainId=" + trainId + ", trainName=" + trainName + ", arrivalTime=" + arrivalTime
 				+ ", departureTime=" + departureTime + ", fare=" + fare + "]";
+		
+		
 	} 
 	
 	

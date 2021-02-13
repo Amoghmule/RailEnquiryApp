@@ -3,7 +3,7 @@ package com.rail.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
+
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
@@ -84,7 +84,7 @@ public class RouteService {
 
 	}
 
-	public void updateTrainDetails(@Valid TrainDTO trainDTO, @Pattern(regexp = "[0-9]+") Integer routeId) throws Exception {
+	public void updateTrainDetails( TrainDTO trainDTO,  Integer routeId) throws Exception {
 		Optional<RouteEntity> reOpt=routeRepository.findById(routeId);
 		
 			RouteEntity re=reOpt.orElseThrow(() -> new BusinessException("route id is not valid, Please check"));
@@ -97,6 +97,9 @@ public class RouteService {
 			te.setArrivalTime(trainDTO.getArrivalTime());
 			te.setDepartureTime(trainDTO.getDepartureTime());
 			te.setFare(trainDTO.getFare());
+			
+			if(trainDTO.getTrainId()!=null)
+			te.setTrainId(trainDTO.getTrainId());
 			
 			teList.add(te);
 			re.setTrainList(teList);
