@@ -70,6 +70,14 @@ public class TrainService {
 	}
 	
 	
+	public void deleteTrainById(Integer trainId) throws Exception {
+		Optional<TrainEntity> teOpt=trainRepository.findById(trainId);
+		
+		teOpt.orElseThrow(()-> new BusinessException("train id is not valid, Please check")) ;
+		
+		trainRepository.deleteById(trainId);
+	}
+	
 	private TrainDTO copyEntityToDTO(TrainEntity te) {
 		
 		if(te==null) return null;
@@ -82,6 +90,11 @@ public class TrainService {
 		t.setTrainId(te.getTrainId());
 		
 		return t;}
+
+
+
+
+	
 
 
 

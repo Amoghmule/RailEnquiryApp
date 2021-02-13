@@ -23,11 +23,14 @@ import com.rail.dto.RouteDTO;
 import com.rail.dto.TrainDTO;
 import com.rail.service.RouteService;
 
+import io.swagger.annotations.Api;
+
 
 
 @RestController
 @RequestMapping("/routes")
 @Validated
+@Api(value = "RouteController APIs")
 public class RouteController {
 
 	@Autowired

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,9 +20,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rail.dto.TrainDTO;
 import com.rail.service.TrainService;
 
+import io.swagger.annotations.Api;
+
 @RestController
 @RequestMapping("/trains")
 @Validated
+@Api(value = "TrainController APIs")
 public class TrainController {
 
 	@Autowired
@@ -58,6 +62,17 @@ public class TrainController {
 			TrainDTO t=trainService.getTrain(trainId);
 			
 			return ResponseEntity.ok(t);
+		}
+		
+		
+		//for deleting train
+		@DeleteMapping("/{trainId}")
+		public ResponseEntity<String> deleteTrainById(@PathVariable Integer trainId) throws Exception{
+			
+			trainService.deleteTrainById(trainId);
+			
+			return ResponseEntity.ok("Train has been successfully deleted with id: "+trainId);
+			
 		}
 	
 }
