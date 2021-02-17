@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.ObjectError;
@@ -13,10 +15,13 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+
 import com.rail.dto.ErrorMessage;
 
 @RestControllerAdvice
 public class ExceptionControllerAdvice {
+	
+	private static final Logger logger= LoggerFactory.getLogger(ExceptionControllerAdvice.class);
 	
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ErrorMessage> exceptionHandler(Exception ex){
@@ -25,7 +30,7 @@ public class ExceptionControllerAdvice {
 		error.setErrorCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
 		error.setMessage(ex.getMessage());
 		
-		ex.printStackTrace();
+		logger.error(" Error : "+ex.getMessage());
 		
 		
 		return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -38,6 +43,8 @@ public class ExceptionControllerAdvice {
 		ErrorMessage error=new ErrorMessage();
 	     error.setErrorCode(HttpStatus.BAD_REQUEST.value());
 	     error.setMessage(ex.getMessage());
+	     
+	     logger.error(" Business Exception : "+ex.getMessage());
 	     return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 		
 	}
@@ -47,8 +54,11 @@ public class ExceptionControllerAdvice {
 		
 		ErrorMessage error=new ErrorMessage();
 	     error.setErrorCode(HttpStatus.BAD_REQUEST.value());
-	     error.setMessage(ex.getBindingResult().getAllErrors().stream().map(ObjectError::getDefaultMessage).collect(Collectors.joining(", ")));
+	     
+	     String message=ex.getBindingResult().getAllErrors().stream().map(ObjectError::getDefaultMessage).collect(Collectors.joining(", "));
+	     error.setMessage(message);
 		
+	     logger.error(" Validation Exception : "+message);
 		
 	     return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 		}
@@ -57,8 +67,11 @@ public class ExceptionControllerAdvice {
 	public ResponseEntity<ErrorMessage> handleConstraintViolationException(ConstraintViolationException ex){
 		ErrorMessage error=new ErrorMessage();
 	     error.setErrorCode(HttpStatus.BAD_REQUEST.value());
-	     error.setMessage(ex.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.joining(", ")));
+	     
+	     String message=ex.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.joining(", "));
+	     error.setMessage(message);
 		
+	     logger.error(" Constraint Violation Exception : "+message);
 		
 		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 		

@@ -6,6 +6,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -36,6 +38,8 @@ public class RouteController {
 	@Autowired
 	RouteService routeService;
 	
+	private static final Logger logger= LoggerFactory.getLogger(RouteController.class);
+	
 	//For persisting Routes
 	@PostMapping(consumes = "application/json")
 	public ResponseEntity<String> createRoute(@Valid @RequestBody RouteDTO routeDTO) throws Exception{
@@ -50,17 +54,21 @@ public class RouteController {
 	@GetMapping(value =  "/{routeId}", produces = "application/json")
 	public ResponseEntity<RouteDTO> getRoutebyId(@PathVariable @Positive Integer routeId) throws Exception{
 		
+		logger.debug("Inside Controller : getting route based on routeId: "+routeId);
 		RouteDTO rDto=routeService.getRoutebyId(routeId);
 		
 		return ResponseEntity.ok(rDto);
 	}
 	
 	
-	//For traindetails by source and destination
+	//For train details by source and destination
 	@GetMapping(value = "/trains",produces = "application/json")
 	public ResponseEntity<List<TrainDTO>> getTrains(@RequestParam 
 			@Pattern(regexp = "[a-zA-Z_-]+") String source,
 			@RequestParam @Pattern(regexp = "[a-zA-Z_-]+") String destination ) throws Exception{
+		
+		logger.debug("Inside Controller : getting trains based on source: "+source+" and destination: "+destination);
+		
 		List<TrainDTO> tList=routeService.getTrains(source,destination);
 		return ResponseEntity.ok(tList);
 	

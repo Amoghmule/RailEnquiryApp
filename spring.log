@@ -1,0 +1,36 @@
+2021-02-17 20:25:13.894  INFO 10072 --- [main] com.rail.RailEnquiryAppApplication       : Starting RailEnquiryAppApplication using Java 1.8.0_144 on Admin with PID 10072 (C:\Users\Admin\gitNew\RailEnquiryApp\target\classes started by Amogh in C:\Users\Admin\gitNew\RailEnquiryApp)
+2021-02-17 20:25:13.898 DEBUG 10072 --- [main] com.rail.RailEnquiryAppApplication       : Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-02-17 20:25:13.899  INFO 10072 --- [main] com.rail.RailEnquiryAppApplication       : No active profile set, falling back to default profiles: default
+2021-02-17 20:25:14.932  INFO 10072 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-02-17 20:25:14.986  INFO 10072 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 2 JPA repository interfaces.
+2021-02-17 20:25:15.503  INFO 10072 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-02-17 20:25:15.511  INFO 10072 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-17 20:25:15.512  INFO 10072 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-17 20:25:15.606  INFO 10072 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/rail]   : Initializing Spring embedded WebApplicationContext
+2021-02-17 20:25:15.607  INFO 10072 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1640 ms
+2021-02-17 20:25:15.793  INFO 10072 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-17 20:25:15.848  INFO 10072 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-02-17 20:25:16.068  INFO 10072 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-02-17 20:25:16.150  INFO 10072 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-02-17 20:25:16.267  INFO 10072 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-02-17 20:25:16.280  INFO 10072 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-02-17 20:25:17.485  INFO 10072 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-17 20:25:17.493  INFO 10072 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-02-17 20:25:17.561  WARN 10072 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-17 20:25:18.675  INFO 10072 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@62de73eb, org.springframework.security.web.context.SecurityContextPersistenceFilter@37d3aa8c, org.springframework.security.web.header.HeaderWriterFilter@6e3b2dd3, org.springframework.security.web.authentication.logout.LogoutFilter@75f4d8a8, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1530d0f2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1bdafb01, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ff463bb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@97b5e6a, org.springframework.security.web.session.SessionManagementFilter@3caf5c96, org.springframework.security.web.access.ExceptionTranslationFilter@225e09f0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2c2aab92]
+2021-02-17 20:25:18.797  INFO 10072 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-17 20:25:18.972  INFO 10072 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/rail'
+2021-02-17 20:25:18.982  INFO 10072 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-02-17 20:25:18.996  INFO 10072 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-02-17 20:25:19.006  INFO 10072 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-02-17 20:25:19.214  INFO 10072 --- [main] com.rail.RailEnquiryAppApplication       : Started RailEnquiryAppApplication in 5.692 seconds (JVM running for 6.337)
+2021-02-17 20:25:27.145  INFO 10072 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/rail]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-02-17 20:25:27.146  INFO 10072 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-02-17 20:25:27.147  INFO 10072 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-02-17 20:25:27.543 DEBUG 10072 --- [http-nio-8081-exec-2] com.rail.controller.RouteController      :  Inside controller: getting route for routeId: 
+2021-02-17 20:25:27.591 ERROR 10072 --- [http-nio-8081-exec-2] c.r.exception.ExceptionControllerAdvice  :  Business Exception: route id is not valid, Please check
+2021-02-17 20:28:11.011  INFO 10072 --- [RMI TCP Connection(4)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-02-17 20:28:11.078  INFO 10072 --- [RMI TCP Connection(4)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-17 20:28:11.083  INFO 10072 --- [RMI TCP Connection(4)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-02-17 20:28:11.086  INFO 10072 --- [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-02-17 20:28:11.092  INFO 10072 --- [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

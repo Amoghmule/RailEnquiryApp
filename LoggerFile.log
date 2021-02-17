@@ -1,0 +1,56 @@
+2021-02-17 21:23:08.652  INFO 11736 --- [main] com.rail.RailEnquiryAppApplication       : Starting RailEnquiryAppApplication using Java 1.8.0_144 on Admin with PID 11736 (C:\Users\Admin\gitNew\RailEnquiryApp\target\classes started by Amogh in C:\Users\Admin\gitNew\RailEnquiryApp)
+2021-02-17 21:23:08.655 DEBUG 11736 --- [main] com.rail.RailEnquiryAppApplication       : Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-02-17 21:23:08.655  INFO 11736 --- [main] com.rail.RailEnquiryAppApplication       : No active profile set, falling back to default profiles: default
+2021-02-17 21:23:09.668  INFO 11736 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-02-17 21:23:09.725  INFO 11736 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces.
+2021-02-17 21:23:10.241  INFO 11736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-02-17 21:23:10.249  INFO 11736 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-17 21:23:10.250  INFO 11736 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-17 21:23:10.345  INFO 11736 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/rail]   : Initializing Spring embedded WebApplicationContext
+2021-02-17 21:23:10.346  INFO 11736 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1620 ms
+2021-02-17 21:23:10.509  INFO 11736 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-17 21:23:10.562  INFO 11736 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-02-17 21:23:10.668  INFO 11736 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-02-17 21:23:10.882  INFO 11736 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-02-17 21:23:10.988  INFO 11736 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-02-17 21:23:11.008  INFO 11736 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-02-17 21:23:12.370  INFO 11736 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-17 21:23:12.380  INFO 11736 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-02-17 21:23:12.470  WARN 11736 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-17 21:23:13.768  INFO 11736 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1da53f4f, org.springframework.security.web.context.SecurityContextPersistenceFilter@500ec769, org.springframework.security.web.header.HeaderWriterFilter@5273143e, org.springframework.security.web.authentication.logout.LogoutFilter@595ec862, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@62de73eb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7bce9ce4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c71cf3e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e7eba9f, org.springframework.security.web.session.SessionManagementFilter@1bdafb01, org.springframework.security.web.access.ExceptionTranslationFilter@6e3b2dd3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@66b31d46]
+2021-02-17 21:23:13.893  INFO 11736 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-17 21:23:14.070  INFO 11736 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/rail'
+2021-02-17 21:23:14.085  INFO 11736 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-02-17 21:23:14.100  INFO 11736 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-02-17 21:23:14.111  INFO 11736 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-02-17 21:23:14.313  INFO 11736 --- [main] com.rail.RailEnquiryAppApplication       : Started RailEnquiryAppApplication in 6.048 seconds (JVM running for 6.682)
+2021-02-17 21:25:10.211  INFO 11736 --- [RMI TCP Connection(4)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-02-17 21:25:11.376  INFO 11736 --- [RMI TCP Connection(4)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-02-17 21:25:11.383  INFO 11736 --- [RMI TCP Connection(4)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-02-17 21:25:11.389  INFO 11736 --- [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-02-17 21:25:11.398  INFO 11736 --- [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-02-17 21:25:17.236  INFO 11608 --- [main] com.rail.RailEnquiryAppApplication       : Starting RailEnquiryAppApplication using Java 1.8.0_144 on Admin with PID 11608 (C:\Users\Admin\gitNew\RailEnquiryApp\target\classes started by Amogh in C:\Users\Admin\gitNew\RailEnquiryApp)
+2021-02-17 21:25:17.242  INFO 11608 --- [main] com.rail.RailEnquiryAppApplication       : No active profile set, falling back to default profiles: default
+2021-02-17 21:25:19.742  INFO 11608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-02-17 21:25:19.885  INFO 11608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 123 ms. Found 2 JPA repository interfaces.
+2021-02-17 21:25:21.772  INFO 11608 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-02-17 21:25:21.789  INFO 11608 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-02-17 21:25:21.790  INFO 11608 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-02-17 21:25:22.131  INFO 11608 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/rail]   : Initializing Spring embedded WebApplicationContext
+2021-02-17 21:25:22.132  INFO 11608 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4805 ms
+2021-02-17 21:25:22.377  INFO 11608 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-02-17 21:25:22.476  INFO 11608 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.27.Final
+2021-02-17 21:25:23.118  INFO 11608 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-02-17 21:25:23.242  INFO 11608 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-02-17 21:25:23.404  INFO 11608 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-02-17 21:25:23.510  INFO 11608 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2021-02-17 21:25:26.042  INFO 11608 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-02-17 21:25:26.050  INFO 11608 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-02-17 21:25:26.139  WARN 11608 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-02-17 21:25:27.257  INFO 11608 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@717a8a76, org.springframework.security.web.context.SecurityContextPersistenceFilter@5b3755f4, org.springframework.security.web.header.HeaderWriterFilter@3cf8a235, org.springframework.security.web.authentication.logout.LogoutFilter@6e794f53, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4768b95c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5dd747c1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@fee881, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62de73eb, org.springframework.security.web.session.SessionManagementFilter@56478522, org.springframework.security.web.access.ExceptionTranslationFilter@60ae7cf2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@780ee3ad]
+2021-02-17 21:25:27.370  INFO 11608 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-02-17 21:25:27.559  INFO 11608 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/rail'
+2021-02-17 21:25:27.569  INFO 11608 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-02-17 21:25:27.584  INFO 11608 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-02-17 21:25:27.594  INFO 11608 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-02-17 21:25:27.816  INFO 11608 --- [main] com.rail.RailEnquiryAppApplication       : Started RailEnquiryAppApplication in 11.702 seconds (JVM running for 14.283)

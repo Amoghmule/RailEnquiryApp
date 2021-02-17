@@ -1,12 +1,14 @@
 package com.rail.controller;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Pattern;
+
 import javax.validation.constraints.Positive;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.Errors;
+
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,8 @@ public class TrainController {
 
 	@Autowired
 	TrainService trainService;
+	
+	private static final Logger logger= LoggerFactory.getLogger(TrainController.class);
 	
 	//For persisting train
 	@PostMapping(consumes = "application/json")
@@ -59,6 +63,7 @@ public class TrainController {
 		@GetMapping(value = "/{trainId}",produces = "application/json")
 		public ResponseEntity<TrainDTO> getTrain(@PathVariable @Positive Integer trainId) throws Exception{
 			
+			logger.debug("Inside Controller : getting train based on trainId: "+trainId);
 			TrainDTO t=trainService.getTrain(trainId);
 			
 			return ResponseEntity.ok(t);
