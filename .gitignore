@@ -19,5 +19,5 @@ target/
 *.iml
 *.ipr
 
-LoggerFile.log
+loggerFile.log
 spring.log
