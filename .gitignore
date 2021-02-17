@@ -20,3 +20,4 @@ target/
 *.ipr
 
 LoggerFile.log
+spring.log
