@@ -17,7 +17,7 @@ public class TrainDTO {
 	
 	private Integer trainId;
 	
-	@NotEmpty(message = "Train name cannot be empty, Please check")
+	@NotEmpty(message = "{train.trainname.invalid}")
 	private String trainName;
 	
 	
@@ -28,7 +28,7 @@ public class TrainDTO {
 	@JsonDeserialize(using = ParseDeserializer.class)
 	private LocalTime departureTime;
 	
-	@PositiveOrZero(message = "Train fare cannot be negative, Please check")
+	@PositiveOrZero(message = "{train.fare.invalid}")
 	private Double fare;
 
 	

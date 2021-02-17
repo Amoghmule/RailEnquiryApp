@@ -52,7 +52,7 @@ public class RouteController {
 	
 	//For getting route
 	@GetMapping(value =  "/{routeId}", produces = "application/json")
-	public ResponseEntity<RouteDTO> getRoutebyId(@PathVariable @Positive Integer routeId) throws Exception{
+	public ResponseEntity<RouteDTO> getRoutebyId(@PathVariable @Positive(message = "{route.id.invalid}") Integer routeId) throws Exception{
 		
 		logger.debug("Inside Controller : getting route based on routeId: "+routeId);
 		RouteDTO rDto=routeService.getRoutebyId(routeId);
@@ -64,8 +64,8 @@ public class RouteController {
 	//For train details by source and destination
 	@GetMapping(value = "/trains",produces = "application/json")
 	public ResponseEntity<List<TrainDTO>> getTrains(@RequestParam 
-			@Pattern(regexp = "[a-zA-Z_-]+") String source,
-			@RequestParam @Pattern(regexp = "[a-zA-Z_-]+") String destination ) throws Exception{
+			@Pattern(regexp = "[a-zA-Z_-]+", message = "{route.source.format}") String source,
+			@RequestParam @Pattern(regexp = "[a-zA-Z_-]+", message = "{route.destination.format}") String destination ) throws Exception{
 		
 		logger.debug("Inside Controller : getting trains based on source: "+source+" and destination: "+destination);
 		
@@ -77,7 +77,7 @@ public class RouteController {
 	
 	//for updating route
 	@PutMapping(value = "/{routeId}", consumes = "application/json")
-	public ResponseEntity<String> updateSourceAndDestination(@PathVariable @Positive Integer routeId,@Valid @RequestBody RouteDTO routeDTO
+	public ResponseEntity<String> updateSourceAndDestination(@PathVariable @Positive(message = "{route.id.invalid}") Integer routeId,@Valid @RequestBody RouteDTO routeDTO
 			) throws Exception{
 		
 		routeService.updateSourceAndDestination(routeDTO,routeId);
@@ -89,7 +89,7 @@ public class RouteController {
 	
 		//Remove train from Route
 		@DeleteMapping("/{routeId}/trains/{trainId}")
-		public ResponseEntity<String> deleteTrain(@PathVariable @Positive Integer routeId,@PathVariable @Positive Integer trainId) throws Exception{
+		public ResponseEntity<String> deleteTrain(@PathVariable @Positive(message = "{route.id.invalid}") Integer routeId,@PathVariable @Positive(message = "{train.id.invalid}") Integer trainId) throws Exception{
 			
 			routeService.deleteTrainById(routeId,trainId);
 			
@@ -102,7 +102,7 @@ public class RouteController {
 		
 		//Add train in Route
 		@PutMapping(value = "/{routeId}/trains", consumes = "application/json")
-		public ResponseEntity<String> updateTrainDetails(@PathVariable @Positive Integer routeId,@Valid @RequestBody TrainDTO trainDTO) throws Exception{
+		public ResponseEntity<String> updateTrainDetails(@PathVariable @Positive(message = "{route.id.invalid}") Integer routeId,@Valid @RequestBody TrainDTO trainDTO) throws Exception{
 			
 			
 			routeService.updateTrainDetails(trainDTO,routeId);

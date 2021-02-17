@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import com.rail.dto.TrainDTO;
@@ -18,6 +19,9 @@ public class TrainService {
 
 	@Autowired
 	TrainRepository trainRepository;
+	
+	@Autowired
+	Environment environment;
 
 	public Integer createTrain( TrainDTO trainDTO) {
 		
@@ -53,7 +57,7 @@ public class TrainService {
 		
 		Optional<TrainEntity> teOpt=trainRepository.findById(trainId);
 		
-		teOpt.orElseThrow(()-> new BusinessException("train id is not valid, Please check"));
+		teOpt.orElseThrow(()-> new BusinessException(environment.getProperty("train.id.invalid")));
 		
 			
 		trainRepository.updateFare(trainDTO.getFare(),trainId);
@@ -65,7 +69,7 @@ public class TrainService {
 		
 		Optional<TrainEntity> teOpt=trainRepository.findById(trainId);
 		
-		TrainEntity te= teOpt.orElseThrow(()-> new BusinessException("train id is not valid, Please check")) ;
+		TrainEntity te= teOpt.orElseThrow(()-> new BusinessException(environment.getProperty("train.id.invalid"))) ;
 		return copyEntityToDTO(te);
 	}
 	
@@ -73,7 +77,7 @@ public class TrainService {
 	public void deleteTrainById(Integer trainId) throws Exception {
 		Optional<TrainEntity> teOpt=trainRepository.findById(trainId);
 		
-		teOpt.orElseThrow(()-> new BusinessException("train id is not valid, Please check")) ;
+		teOpt.orElseThrow(()-> new BusinessException(environment.getProperty("train.id.invalid"))) ;
 		
 		trainRepository.deleteById(trainId);
 	}

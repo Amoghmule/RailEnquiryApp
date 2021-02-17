@@ -3,16 +3,20 @@ package com.rail.dto;
 import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 public class RouteDTO {
 	
 	private Integer routeId;
 	
-	@NotEmpty(message = "Source cannot be empty, Please check")
+	@NotEmpty(message = "{route.source.invalid}")
+	@Pattern(regexp = "[a-zA-Z_-]+", message = "{route.source.format}")
 	private String source;
 	
-	@NotEmpty(message = "Destination cannot be empty, Please check")
+	@NotEmpty(message = "{route.destination.invalid}")
+	@Pattern(regexp = "[a-zA-Z_-]+", message = "{route.destination.format}")
 	private String destination;
+	
 	private List<TrainDTO> trainList;
 	
 	

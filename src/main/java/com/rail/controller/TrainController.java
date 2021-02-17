@@ -49,7 +49,7 @@ public class TrainController {
 	
 	//for updating train fare
 		@PutMapping(value = "/{trainId}",consumes = "application/json" )
-		public ResponseEntity<String> updateFare(@PathVariable @Positive Integer trainId,@Valid @RequestBody TrainDTO trainDTO) throws Exception{
+		public ResponseEntity<String> updateFare(@PathVariable @Positive(message = "{train.id.invalid}") Integer trainId,@Valid @RequestBody TrainDTO trainDTO) throws Exception{
 
 			
 			trainService.updateFare(trainId,trainDTO);
@@ -61,7 +61,7 @@ public class TrainController {
 	
 		//for getting train
 		@GetMapping(value = "/{trainId}",produces = "application/json")
-		public ResponseEntity<TrainDTO> getTrain(@PathVariable @Positive Integer trainId) throws Exception{
+		public ResponseEntity<TrainDTO> getTrain(@PathVariable @Positive(message = "{train.id.invalid}") Integer trainId) throws Exception{
 			
 			logger.debug("Inside Controller : getting train based on trainId: "+trainId);
 			TrainDTO t=trainService.getTrain(trainId);
@@ -72,7 +72,7 @@ public class TrainController {
 		
 		//for deleting train
 		@DeleteMapping("/{trainId}")
-		public ResponseEntity<String> deleteTrainById(@PathVariable Integer trainId) throws Exception{
+		public ResponseEntity<String> deleteTrainById(@PathVariable @Positive(message = "{train.id.invalid}") Integer trainId) throws Exception{
 			
 			trainService.deleteTrainById(trainId);
 			

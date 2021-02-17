@@ -6,10 +6,10 @@ import java.util.Optional;
 
 import java.util.stream.Collectors;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Pattern;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import com.rail.dto.RouteDTO;
@@ -24,11 +24,14 @@ public class RouteService {
 
 	@Autowired
 	RouteRepository routeRepository;
+	
+	@Autowired
+	Environment environment;
 
 	public Integer createRoute(RouteDTO routeDTO) throws Exception {
 
 		if (routeDTO == null)
-			throw new BusinessException("route object cannot be null, Please check");
+			throw new BusinessException(environment.getProperty("route.object.must"));
 
 		RouteEntity routeEntityResult = routeRepository.saveAndFlush(copyDTOtoEntity(routeDTO));
 
@@ -39,7 +42,7 @@ public class RouteService {
 
 		Optional<RouteEntity> reOpt = routeRepository.findById(routeId);
 
-		RouteEntity reEntity = reOpt.orElseThrow(() -> new BusinessException("route id is not valid, Please check"));
+		RouteEntity reEntity = reOpt.orElseThrow(() -> new BusinessException(environment.getProperty("route.id.invalid")) );
 
 		return copyEntitytoDTO(reEntity);
 	}
@@ -50,7 +53,7 @@ public class RouteService {
 		List<TrainDTO> tList = new ArrayList<>();
 
 		if (reList == null)
-			throw new BusinessException("routes list cannot be null, Please check");
+			throw new BusinessException(environment.getProperty("route.object.must"));
 
 		for (RouteEntity re : reList) {
 			RouteDTO rDto = copyEntitytoDTO(re);
@@ -63,7 +66,7 @@ public class RouteService {
 	public void updateSourceAndDestination(RouteDTO routeDTO, Integer routeId) throws Exception {
 
 		routeRepository.findById(routeId)
-				.orElseThrow(() -> new BusinessException("route id is not valid, Please check"));
+				.orElseThrow(() -> new BusinessException(environment.getProperty("route.id.invalid")));
 
 		routeRepository.updateSourceAndDestination(routeDTO.getSource(), routeDTO.getDestination(), routeId);
 
@@ -73,7 +76,7 @@ public class RouteService {
 
 		Optional<RouteEntity> reOpt = routeRepository.findById(routeId);
 
-		RouteEntity re = reOpt.orElseThrow(() -> new BusinessException("route id is not valid, Please check"));
+		RouteEntity re = reOpt.orElseThrow(() -> new BusinessException(environment.getProperty("route.id.invalid")));
 
 		List<TrainEntity> teList = re.getTrainList().stream().filter(x -> x.getTrainId() != trainId)
 				.collect(Collectors.toList());
@@ -87,7 +90,7 @@ public class RouteService {
 	public void updateTrainDetails( TrainDTO trainDTO,  Integer routeId) throws Exception {
 		Optional<RouteEntity> reOpt=routeRepository.findById(routeId);
 		
-			RouteEntity re=reOpt.orElseThrow(() -> new BusinessException("route id is not valid, Please check"));
+			RouteEntity re=reOpt.orElseThrow(() -> new BusinessException(environment.getProperty("route.id.invalid")));
 			
 			
 			List<TrainEntity> teList=re.getTrainList();
