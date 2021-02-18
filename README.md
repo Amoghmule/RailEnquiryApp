@@ -13,3 +13,5 @@ This App has two types of users, “Admin” and “User”.
 * Spring Data JPA
 * REST API
 * postgreSQL
+
+
