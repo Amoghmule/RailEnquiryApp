@@ -26,7 +26,7 @@ public class AppConfig {
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder().title("RailEnquiry API")
 				.description("Train Enquiry application API Reference")
-				.version("1.0").build();
+				.version("1.0").build();//for info
 	}
 	
 }
